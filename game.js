@@ -11,7 +11,13 @@ canvas.height = HEIGHT;
 const charSpeed = 5;
 let charX = WIDTH / 2;
 let charY = HEIGHT / 2;
-let characterImage = new Image(file:///C:/Users/JacksonStrickland/Downloads/pixil-frame-0.png); // Placeholder for character image
+let characterImage = new Image(); // Placeholder for character image
+
+// Set the character image URL here (Replace this URL with your desired image URL)
+const characterImageURL = 'https://example.com/path/to/your/character-image.png';  // <--- CHANGE THIS URL
+
+// Load character image using the provided URL
+characterImage.src = characterImageURL;
 
 // Background function: generate random green shades
 function generateBackground() {
@@ -71,21 +77,8 @@ function gameLoop() {
   requestAnimationFrame(gameLoop);
 }
 
-// Function to load character image from URL
-function loadCharacterImageFromURL(url) {
-  characterImage.src = url;
-  characterImage.onload = function() {
-    moveCharacter();
-    gameLoop();
-  };
-}
-
-// Event listener for loading the character image
-document.getElementById("loadImageBtn").addEventListener("click", () => {
-  const imageURL = document.getElementById("charImageURL").value;
-  if (imageURL) {
-    loadCharacterImageFromURL(imageURL);
-  } else {
-    alert("Please enter a valid image URL.");
-  }
-});
+// Ensure the image is loaded before starting the game
+characterImage.onload = function() {
+  moveCharacter();
+  gameLoop();
+};
