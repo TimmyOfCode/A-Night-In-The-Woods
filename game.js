@@ -11,7 +11,7 @@ canvas.height = HEIGHT;
 const charSpeed = 5;
 let charX = WIDTH / 2;
 let charY = HEIGHT / 2;
-let characterImage = new Image(); // Placeholder for character image
+let characterImage = new Image(file:///C:/Users/JacksonStrickland/Downloads/pixil-frame-0.png); // Placeholder for character image
 
 // Background function: generate random green shades
 function generateBackground() {
