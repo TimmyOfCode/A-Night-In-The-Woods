@@ -14,7 +14,7 @@ let charY = HEIGHT / 2;
 let characterImage = new Image(); // Placeholder for character image
 
 // Set the character image URL here (Replace this URL with your desired image URL)
-const characterImageURL = 'https://example.com/path/to/your/character-image.png';  // <--- CHANGE THIS URL
+const characterImageURL = 'https://pasteboard.co/a1WZRCHwiuB6.png';  // <--- CHANGE THIS URL
 
 // Load character image using the provided URL
 characterImage.src = characterImageURL;
