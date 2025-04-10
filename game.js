@@ -11,10 +11,7 @@ canvas.height = HEIGHT;
 const charSpeed = 5;
 let charX = WIDTH / 2;
 let charY = HEIGHT / 2;
-
-// Load the character image (replace with your image file)
-const characterImage = new Image();
-characterImage.src = 'character.png'; // Put the correct image file path here
+let characterImage = new Image(); // Placeholder for character image
 
 // Background function: generate random green shades
 function generateBackground() {
@@ -74,8 +71,21 @@ function gameLoop() {
   requestAnimationFrame(gameLoop);
 }
 
-// Initialize the game
-characterImage.onload = function() {
-  moveCharacter();
-  gameLoop();
-};
+// Function to load character image from URL
+function loadCharacterImageFromURL(url) {
+  characterImage.src = url;
+  characterImage.onload = function() {
+    moveCharacter();
+    gameLoop();
+  };
+}
+
+// Event listener for loading the character image
+document.getElementById("loadImageBtn").addEventListener("click", () => {
+  const imageURL = document.getElementById("charImageURL").value;
+  if (imageURL) {
+    loadCharacterImageFromURL(imageURL);
+  } else {
+    alert("Please enter a valid image URL.");
+  }
+});
